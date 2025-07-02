@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# Django
+*.log
+*.pot
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# PostgreSQL (локальные)
+*.pgdata/
+*.backup
+
+# Node/React
+node_modules/
+build/
+dist/
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Docker Compose специфические файлы
+docker-compose.override.yml
+docker-compose.prod.yml
+docker-compose.dev.yml
+Dockerfile.prod
+Dockerfile.dev
+
+# Secrets
+*.env
+!.env.example
+.env.local
+.env.*.local
+
+# Misc
+*.swp
+*~
+.#*
