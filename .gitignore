@@ -1,0 +1,56 @@
+# Виртуальное окружение Python
+venv/
+env/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+
+# Django
+*.log
+*.pot
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# PostgreSQL (локальные файлы)
+*.pgdata/
+*.backup
+
+# React
+node_modules/
+build/
+dist/
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Docker
+docker-compose.override.yml
+docker-compose.prod.yml
+docker-compose.dev.yml
+Dockerfile.prod
+Dockerfile.dev
+
+# Секреты и конфиденциальные данные
+*.env
+!.env.example
+.env.local
+.env.*.local
+
+# Тесты и временные файлы
+*.swp
+*~
+.#*
