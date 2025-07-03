@@ -9,3 +9,7 @@ class User(AbstractUser):
         ACCOUNTANT = 'ACCOUNTANT', 'Специалист учета'
 
     role = models.CharField(max_length=20, choices=Role.choices)
+
+    def __str__(self) -> str:
+        """Return a human-readable representation of the user."""
+        return self.username
