@@ -5,7 +5,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-ALLOWED_HOSTS = ['*']
+DEBUG = os.environ.get('DEBUG', '1') == '1'
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -14,7 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'users.apps.UsersConfig'
     # + приложения
 ]
 
@@ -33,7 +34,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # если хочешь, можешь здесь указать свои директории шаблонов
+        'DIRS': [BASE_DIR / 'templates'],  # если хочешь, можешь здесь указать свои директории шаблонов
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -46,24 +47,46 @@ TEMPLATES = [
     },
 ]
 
+WSGI_APPLICATION = 'config.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wpt_db',
-        'USER': 'wpt_user',
-        'PASSWORD': 'wpt_password',
-        'HOST': 'db',  # <--- важно!
-        'PORT': '5432',
+        'NAME': os.environ.get('POSTGRES_DB', 'wpt_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'wpt_user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'wpt_password'),
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
-
-
-
-
-
-
 AUTH_USER_MODEL = 'users.User'
+
+LANGUAGE_CODE = 'ru-ru'
+TIME_ZONE = 'Europe/Moscow'
+USE_I18N = True
+USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
