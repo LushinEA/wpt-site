@@ -24,7 +24,6 @@ services:
     depends_on:
       - db
 
-
   frontend:
     build: ./frontend
     volumes:
@@ -33,8 +32,6 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-    stdin_open: true #убрать
-    tty: true        #убрать
 
 volumes:
   postgres_data:
