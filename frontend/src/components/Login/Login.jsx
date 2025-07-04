@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login", email, password);
-    // Здесь можно сделать реальный fetch на /api/token/
-    navigate("/map");
+    console.log("Авторизация:", email, password);
+    // Здесь вставь реальный POST на /api/token/
   };
 
   return (
     <div className="login-container">
       <div className="login-left">
-        <h2>Сбор данных и отчёты<br />по перевозке нефтепродуктов</h2>
+        <div className="login-text">
+          Сбор данных<br />и отчёты<br />по перевозке<br />нефтепродуктов
+        </div>
       </div>
       <div className="login-right">
-        <form onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
           <h1>Вход в систему</h1>
           <input
             type="email"
-            placeholder="Введите e-mail"
+            placeholder="Введите электронную почту"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -36,10 +35,13 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Войти</button>
           <div className="login-links">
-            <a href="#">Забыли пароль?</a><br />
-            <a href="#">Напишите администратору</a>
+            <span>Забыли пароль?</span>
+            <a href="#">Сбросить пароль</a>
+          </div>
+          <button type="submit">Войти</button>
+          <div className="login-admin">
+            Возникли проблемы? <a href="#">Напишите администратору</a>
           </div>
         </form>
       </div>
