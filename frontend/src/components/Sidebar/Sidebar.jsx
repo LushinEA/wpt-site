@@ -22,10 +22,26 @@ export default function Sidebar() {
             Ввод данных
           </NavLink>
         </li>
-        <li style={{ margin: "15px 0" }}>Отчётность</li>
-        <li style={{ margin: "15px 0" }}>Дашборды и графики</li>
-        <li style={{ margin: "15px 0" }}>Пользователи</li>
-        <li style={{ margin: "15px 0" }}>Справочники</li>
+        <li style={{ margin: "15px 0" }}>
+          <NavLink to="/reports" style={{ color: "#fff", textDecoration: "none" }}>
+            Отчётность
+          </NavLink>
+        </li>
+        <li style={{ margin: "15px 0" }}>
+          <NavLink to="/dashboards" style={{ color: "#fff", textDecoration: "none" }}>
+            Дашборды и графики
+          </NavLink>
+        </li>
+        <li style={{ margin: "15px 0" }}>
+          <NavLink to="/users" style={{ color: "#fff", textDecoration: "none" }}>
+            Пользователи
+          </NavLink>
+        </li>
+        <li style={{ margin: "15px 0" }}>
+          <NavLink to="/directories" style={{ color: "#fff", textDecoration: "none" }}>
+            Справочники
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
