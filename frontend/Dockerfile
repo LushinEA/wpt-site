@@ -1,11 +1,28 @@
+# Old dev version
+#FROM node:20
+#
+#WORKDIR /app
+#
+#COPY package*.json ./
+#RUN npm install
+#
+#COPY . .
+#
+#EXPOSE 3000
+#CMD ["npm", "start"]
+
+# New prod version
 FROM node:20
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN test -d node_modules || npm install
+RUN npm install
 
 COPY . .
 
+RUN npm run build
+
+RUN npm install -g serve
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["serve", "-s", "build", "-l", "3000"]

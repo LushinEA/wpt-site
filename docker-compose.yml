@@ -24,14 +24,26 @@ services:
     depends_on:
       - db
 
+# Olv dev version
+#  frontend:
+#    build: ./frontend
+#    volumes:
+#      - ./frontend:/app
+#    ports:
+#      - "3000:3000"
+#    stdin_open: true    
+#    tty: true
+#    depends_on:
+#      - backend
+
+# New prod version
   frontend:
     build: ./frontend
-    volumes:
-      - ./frontend:/app
     ports:
       - "3000:3000"
     depends_on:
       - backend
+
 
 volumes:
   postgres_data:
